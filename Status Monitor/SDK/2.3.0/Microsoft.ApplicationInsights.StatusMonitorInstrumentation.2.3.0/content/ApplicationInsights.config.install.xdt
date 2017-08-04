@@ -1,0 +1,6 @@
+﻿<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <TelemetryInitializers xdt:Transform="InsertIfMissing"/>
+  <TelemetryInitializers>
+    <Add xdt:Transform="InsertIfMissing" xdt:Locator="Match(Type)" Type="Microsoft.ApplicationInsights.StatusMonitor.SdkSourceTelemetryInitializer, Microsoft.AI.StatusMonitor"/>
+  </TelemetryInitializers>
+</ApplicationInsights>

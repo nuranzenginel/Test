@@ -1,0 +1,6 @@
+﻿<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <TelemetryInitializers>
+    <Add xdt:Transform="Remove" xdt:Locator="Match(Type)" Type="Microsoft.ApplicationInsights.StatusMonitor.SdkSourceTelemetryInitializer, Microsoft.AI.StatusMonitor"/>
+  </TelemetryInitializers>
+  <TelemetryInitializers xdt:Transform="Remove" xdt:Locator="Condition(count(*)=0)"/>
+</ApplicationInsights>

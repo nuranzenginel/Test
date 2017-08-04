@@ -1,0 +1,991 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+  <!-- Updatable Help Version 1.0.0.0 -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Start-ApplicationInsightsMonitoring</command:name>
+      <maml:description>
+        <maml:para>Starts monitoring a web application that has already been deployed.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Start</command:verb>
+      <command:noun>ApplicationInsightsMonitoring</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>
+        Starts monitoring an IIS web app that is already deployed.
+        Instruments the web application with the Application Insights SDK, and configures it to send telemetry to a specified Application Insights resource.
+      </maml:para>
+      <maml:para>
+        This cmdlet only affects apps that are not already instrumented - that is, SdkState==NotInstrumented.
+        The cmdlet does not affect an app that is already instrumented, either at build time by adding the SDK to the code, or at run time by a previous use of this cmdlet.
+      </maml:para>
+      <maml:para>
+        The SDK version used to instrument the app is the version that was most recently downloaded to this server.
+        To download the latest version, use Update-ApplicationInsightsVersion.
+      </maml:para>
+      <maml:para>
+        Returns ApplicationInsightsApplication on success, or if it fails, logs an error trace to stderr.
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Start-ApplicationInsightsMonitoring</maml:name>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name of the web app in IIS.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2">
+          <maml:name>InstrumentationKey</maml:name>
+          <maml:description>
+            <maml:para>
+              Identifies where you want the results to appear. Obtain a key by creating an Application Insights resource at https://portal.azure.com. <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Learn more</a>
+            </maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>
+              Start monitoring all applications that are not currently being monitored,
+              sending all the telemetry to a single resource with the specified instrumentation key.
+            </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="(by value,property name)" position="1" aliases="">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>The name of the web app in IIS.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2">
+        <maml:name>InstrumentationKey</maml:name>
+        <maml:description>
+          <maml:para>
+            Identifies where you want the results to appear.
+            Obtain a key by creating an Application Insights resource at https://portal.azure.com.
+            <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Learn more</a>
+          </maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>
+            Start monitoring all applications that are not currently being monitored,
+            sending all the telemetry to a single resource with the specified instrumentation key.
+          </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name></maml:name>
+          <maml:uri></maml:uri>
+          <maml:description>
+            <maml:para>
+            </maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example: Start Application Insights Monitoring</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Start-ApplicationInsightsMonitoring -Name "Default Web Site/WebApp1" -InstrumentationKey "00000000-0000-0000-0000-000000000000"
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            This command starts monitoring web application "Default Web Site/WebApp1" with instrumentation key "00000000-0000-0000-0000-000000000000".
+            The previous SdkState must be 'NotInstrumented' - that is, no monitoring either by a previous use of this cmdlet, or by SDK built into the app code.
+            The instrumentation key specifies where the telemetry data appears in the Application Insights service.
+            To obtain a key, create an Application Insights resource in <a href="https://portal.azure.com">the Azure Portal</a>.
+            <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Learn more</a>.
+          </maml:para>
+          <maml:para>
+            'SdkVersion' shows the version most recently downloaded to this server.
+            'LatestAvailableSdkVersion' shows the version currently available on the NuGet gallery.
+            To refresh the downloaded SDK, use Update-ApplicationInsightsVersion.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example: Start Application Insights Monitoring for all applications</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Start-ApplicationInsightsMonitoring -InstrumentationKey "00000000-0000-0000-0000-000000000000" -All
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+          
+          Name                      : WebRole1_IN_0
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            This command starts monitoring all IIS web applications that are not currently monitored.
+            The instrumentation key specifies where the telemetry data appears in the Application Insights service.
+            To obtain a key, create an Application Insights resource in https://portal.azure.com.
+            <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Learn more</a>.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Monitoring with Application Insights</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/?LinkID=506792</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-ApplicationInsightsMonitoringStatus</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsVersion</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Stop-ApplicationInsightsMonitoring</command:name>
+      <maml:description>
+        <maml:para>Stops monitoring with Application Insights. Monitoring cannot be disabled if the application was built with the SDK.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Stop</command:verb>
+      <command:noun>ApplicationInsightsMonitoring</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>
+        Stops monitoring with Application Insights and removes instrumentation.
+      </maml:para>
+      <maml:para>
+        This cmdlet only affects apps for which SdkState == EnabledAfterDeployment.
+        That is, it doesn't affect apps that were instrumented at build time by adding the SDK to the source code.
+      </maml:para>
+      <maml:para>
+        Returns ApplicationInsightsApplication on success, or if it fails, logs an error trace to stderr.
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Stop-ApplicationInsightsMonitoring</maml:name>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name of the web app in IIS.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        </command:parameter>>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>Stop monitoring all applications for which SdkState == EnabledAfterDeployment.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>The name of the web app in IIS.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>Stop monitoring all applications for which SdkState == EnabledAfterDeployment.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name></maml:name>
+          <maml:uri></maml:uri>
+          <maml:description>
+            <maml:para></maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example: Stop Application Insights Monitoring</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Stop-ApplicationInsightsMonitoring -Name "Default Web Site/WebApp1"
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        :
+          ProfilerState             : ApplicationInsights
+          SdkState                  : NotInstrumented
+          SdkVersion                :
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>Stops monitoring web application "Default Web Site/WebApp1".</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example: Stop Application Insights Monitoring all web applications.</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Stop-ApplicationInsightsMonitoring -All
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        :
+          ProfilerState             : ApplicationInsights
+          SdkState                  : NotInstrumented
+          SdkVersion                :
+          LatestAvailableSdkVersion : 1.2.3
+
+          Name                      : WebRole1_IN_0
+          InstrumentationKey        :
+          ProfilerState             : ApplicationInsights
+          SdkState                  : NotInstrumented
+          SdkVersion                :
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            Stops monitoring all web applications that were started with Start-ApplicationInsightsMonitoring
+            or with the <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Status Monitor tool</a>.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Start-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-ApplicationInsightsMonitoringStatus</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsVersion</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-ApplicationInsightsMonitoringStatus</command:name>
+      <maml:description>
+        <maml:para>
+          Retrieves the monitoring status of all web apps in the IIS server, or a specified app if you use –Name.
+          Returns a list of ApplicationInsightsApplication.
+        </maml:para>
+        <maml:para>
+          SdkState==NotInstrumented: App is not instrumented, can be instrumented using Start-ApplicationInsightsMonitoring.
+        </maml:para>
+        <maml:para>
+          SdkState==EnabledAfterDeployment: App is being monitored.
+          Use Update-ApplicationInsightsMonitoring to update the SDK version or change the target instrumentation key,
+          or Stop-ApplicationInsightsMonitoring to remove instrumentation.
+        </maml:para>
+        <maml:para>
+          SdkState==EnabledByCodeInstrumentation: App is being monitored by an SDK added to the code during development.
+          The SDK version cannot be changed by these cmdlets, but the instrumentation key can be changed by Update-ApplicationInsightsMonitoring.
+        </maml:para>
+        <maml:para>
+          'SdkVersion' shows the version in use for monitoring this app.
+        </maml:para>
+        <maml:para>
+          'LatestAvailableSdkVersion' shows the version currently available on the NuGet gallery.
+          To upgrade the app to this version, use Update-ApplicationInsightsVersion to download the latest version and then Update-ApplicationInsightsMonitoring.
+        </maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>ApplicationInsightsMonitoringStatus</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>
+        Retrieves the monitoring status of all web apps in the IIS server, or one app if you use –Name. Returns a list of ApplicationInsightsApplication.
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-ApplicationInsightsMonitoringStatus</maml:name>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name of the web app in IIS.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>The name of the web app in IIS.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name></maml:name>
+          <maml:uri></maml:uri>
+          <maml:description>
+            <maml:para></maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get status of a named app</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Get-ApplicationInsightsMonitoringStatus -Name "Default Web Site/WebApp1"
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             :
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            'SdkState' indicates when the app was instrumented: EnabledAfterDeployment = at runtime,
+            by using Start-ApplicationInsightsMonitoring or the Status Monitor tool;
+            NotInstrumented = never instrumented;
+            EnabledByCodeInstrumentation = at build time, by adding the SDK to the code.
+          </maml:para>
+          <maml:para>
+            'SdkVersion' shows the version used to instrument this app.
+            'LatestAvailableSdkVersion' indicates the version currently available on the NuGet gallery.
+            To upgrade the SDK, use Update-ApplicationInsightsVersion to download the latest version and then Update-ApplicationInsightsMonitoring.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get status of all apps in this IIS server</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Get-ApplicationInsightsMonitoringStatus
+
+          Name                      : New Web Site/Example1
+          InstrumentationKey        : 00000000-0000-0000-0000-000000000000
+          ProfilerState             :
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+
+          Name                      : Default Web Site/WebSite1
+          InstrumentationKey        :
+          ProfilerState             :
+          SdkState                  : EnabledByCodeInstrumentation
+          SdkVersion                :
+          LatestAvailableSdkVersion : 1.2.3
+
+          Name                      : Default Web Site/Mayando
+          InstrumentationKey        : 11111111-2222-3333-4444-000000000000
+          ProfilerState             :
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.1
+          LatestAvailableSdkVersion : 1.2.3
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            The SdkStates indicate that for websites Example1 and Mayando, monitoring was started at runtime,
+            by using Start-ApplicationInsightsMonitoring or by using the Status Monitor tool.
+            For website WebSite1, the app was built with the Application Insights SDK.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Start-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsVersion</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Update-ApplicationInsightsMonitoring</command:name>
+      <maml:description>
+        <maml:para>Change the target instrumentation key and/or apply the most recently downloaded version of the Application Insights SDK. (To download the most recent version from the gallery, use Update-ApplicationInsightsVersion.)</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Update</command:verb>
+      <command:noun>ApplicationInsightsMonitoring</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>
+        Use this to send telemetry to a different Application Insights resource, and/or to apply the most recently downloaded version of the SDK.
+      </maml:para>
+      <maml:para>
+        If you supply an instrumentation key, it is updated.
+      </maml:para>
+      <maml:para>
+        The SDK version is updated if, and only if, SdkState==EnabledAfterDeployment - that is, the app was instrumented on the server at run time
+        (for example using Start-ApplicationInsightsMonitoring). It will not be updated if the SDK was built into the source code.
+      </maml:para>
+      <maml:para>
+        Returns ApplicationInsightsApplication on success, or if it fails, logs an error trace to stderr.
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Update-ApplicationInsightsMonitoring</maml:name>
+        <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+          <maml:name>Name</maml:name>
+          <maml:description>
+            <maml:para>The name in IIS of the web app to update.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2">
+          <maml:name>InstrumentationKey</maml:name>
+          <maml:description>
+            <maml:para>
+              If specified, changes the target instrumentation key, so that the telemetry is sent to the resource with this key.
+              This works for any instrumented app, including those instrumented at build time.
+            </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+          <maml:name>All</maml:name>
+          <maml:description>
+            <maml:para>
+              Change the target instrumentation key and/or apply the most recently downloaded Application Insights SDK for all monitored applications.
+              The SDK version is updated if, and only if, SdkState==EnabledAfterDeployment - that is, the app was instrumented on the server at run time
+            </maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="True (by value,property name)" position="1" aliases="">
+        <maml:name>Name</maml:name>
+        <maml:description>
+          <maml:para>The name of the web app to update.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="2">
+        <maml:name>InstrumentationKey</maml:name>
+        <maml:description>
+          <maml:para>
+            If specified, changes the instrumentation key so that the telemetry is sent to a different resource.
+            This works for any app on the server, including those instrumented at build time.
+          </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
+        <maml:name>All</maml:name>
+        <maml:description>
+          <maml:para>
+            Change the target instrumentation key and/or apply the most recently downloaded Application Insights SDK for all monitored applications.
+            The SDK version is updated if, and only if, SdkState==EnabledAfterDeployment - that is, the app was instrumented on the server at run time
+          </maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue></dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name></maml:name>
+          <maml:uri></maml:uri>
+          <maml:description>
+            <maml:para></maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Send telemetry to a different Application Insights resource</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Update-ApplicationInsightsMonitoring -Name "Default Web Site/WebApp1" -InstrumentationKey "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaa"
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaa
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.3
+          LatestAvailableSdkVersion : 1.2.3
+
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            Telemetry from "Default Web Site/WebApp1" will now appear in the Application Insights resource
+            with the instrumentation key "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaa".
+          </maml:para>
+          <maml:para>
+            In addition, the most recently downloaded version of the Application Insights SDK will be used to collect and send telemetry.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Update the SDK to the latest version</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Update-ApplicationInsightsMonitoring -Name "Default Web Site/WebApp1"
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : 33333333-3333-3333-3333-333333333333
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.3
+          LatestAvailableSdkVersion : 1.2.3
+
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            The most recently downloaded of the Application Insights SDK will be used to collect and send telemetry from this "Default Web Site/WebApp1".
+            The telemetry will be sent to the same resource as before.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Update the SDK to the latest version for all monitored applications.</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Update-ApplicationInsightsMonitoring -All
+
+          Name                      : Default Web Site/WebApp1
+          InstrumentationKey        : aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaa
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.3
+          LatestAvailableSdkVersion : 1.2.3
+
+          Name                      : Default Web Site/WebApp2
+          InstrumentationKey        : aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaaaa
+          ProfilerState             : ApplicationInsights
+          SdkState                  : EnabledAfterDeployment
+          SdkVersion                : 1.2.3
+          LatestAvailableSdkVersion : 1.2.3
+
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+            Updates SDK verstion for all web applications that were started with Start-ApplicationInsightsMonitoring
+            or with the <a href="http://go.microsoft.com/fwlink/?LinkID=506792">Status Monitor tool</a>.
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Start-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-ApplicationInsightsMonitoringStatus</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsVersion</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Update-ApplicationInsightsVersion</command:name>
+      <maml:description>
+        <maml:para>Downloads the latest Application Insights SDK to the server.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para />
+      </maml:copyright>
+      <command:verb>Update</command:verb>
+      <command:noun>ApplicationInsightsVersion</command:noun>
+      <dev:version />
+    </command:details>
+    <maml:description>
+      <maml:para>
+        Use this to download the latest Application Insights SDK to the server. It will be used in future calls to Start-ApplicationMonitoring and Update-ApplicationMonitoring.
+      </maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Update-ApplicationInsightsVersion</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para />
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name></maml:name>
+          <maml:uri></maml:uri>
+          <maml:description>
+            <maml:para></maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <command:terminatingErrors />
+    <command:nonTerminatingErrors />
+    <command:examples>
+      <command:example>
+        <maml:title>Example: Update local SDK verion to the latest available.</maml:title>
+        <maml:introduction>
+          <maml:para>
+          </maml:para>
+        </maml:introduction>
+        <dev:code>
+          C:\PS&gt;Update-ApplicationInsightsVersion
+
+          SDKVersion StatusMonitorVersion
+          ---------- --------------------
+          1.2.3      1.5.0-build17538
+
+        </dev:code>
+        <dev:remarks>
+          <maml:para>
+          </maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText />
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Start-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Stop-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-ApplicationInsightsMonitoringStatus</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsMonitoring</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Update-ApplicationInsightsVersion</maml:linkText>
+        <maml:uri />
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+</helpItems>
